@@ -19,5 +19,16 @@ function createDreamTeam(/* members */) {
 }
 
 module.exports = {
-  createDreamTeam
+  createDreamTeam(members) {
+    let result = [];
+    if (Array.isArray(members)) {
+      members.map(e => {
+        if (typeof(e) === 'string') {
+          result.push(e.trim()[0].toUpperCase())
+        }
+        else return false;
+      });
+      return result.sort().join('')
+    } else return false
+  }
 };

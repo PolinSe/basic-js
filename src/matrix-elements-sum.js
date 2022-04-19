@@ -22,5 +22,20 @@ function getMatrixElementsSum(/* matrix */) {
 }
 
 module.exports = {
-  getMatrixElementsSum
+  getMatrixElementsSum(matrix) {
+    let sum = 0;
+    let columnCount = matrix[0].length;
+
+    for (let i = 0; i < columnCount; i++) {
+      for (let j = 0; j < matrix.length; j++) {
+        if (matrix[j][i] === 0) break
+        else {
+          if (matrix[j][i+1] !== 0 || matrix[j][i+1] === 0) {
+            sum+=matrix[j][i]
+          }
+        }
+      }
+    }
+    return sum;
+  }
 };

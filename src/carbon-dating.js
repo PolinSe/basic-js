@@ -23,5 +23,10 @@ function dateSample(/* sampleActivity */) {
 }
 
 module.exports = {
-  dateSample
+  dateSample(sampleActivity) {
+    if (sampleActivity && typeof(sampleActivity) === 'string' && +sampleActivity > 0 && +sampleActivity < 15) {
+      return Math.ceil(Math.log(MODERN_ACTIVITY / +sampleActivity) * HALF_LIFE_PERIOD / 0.693)
+    }
+    else return false
+  }
 };
