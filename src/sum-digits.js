@@ -18,5 +18,8 @@ function getSumOfDigits(/* n */) {
 }
 
 module.exports = {
-  getSumOfDigits
-};
+  getSumOfDigits(n) {
+    let sum = n.toString().split('').reduce((a,b) => +a + +b)
+    return sum < 10 ? sum : sum.toString().split('').reduce((a,b) => +a + +b)
+  }
+}

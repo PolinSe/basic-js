@@ -17,5 +17,12 @@ function deleteDigit(/* n */) {
 }
 
 module.exports = {
-  deleteDigit
-};
+  deleteDigit(n) {
+    let arr = Array.from(n.toString())
+    let resultArray = []
+    for (let i = 0; i < arr.length; i++) {
+      resultArray.push(+arr.filter((e, index) => index !== i).join(''))
+    }
+    return Math.max(...resultArray)
+  }
+}
